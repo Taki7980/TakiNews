@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/TakiNews/static/css/main.d215d850.css",
+    "main.js": "/TakiNews/static/js/main.f356fb6e.js",
+    "static/js/787.4c026eef.chunk.js": "/TakiNews/static/js/787.4c026eef.chunk.js",
+    "static/media/Walk.gif": "/TakiNews/static/media/Walk.84fed2e46dcd383d7a16.gif",
+    "static/media/logo.svg": "/TakiNews/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/TakiNews/index.html",
+    "main.d215d850.css.map": "/TakiNews/static/css/main.d215d850.css.map",
+    "main.f356fb6e.js.map": "/TakiNews/static/js/main.f356fb6e.js.map",
+    "787.4c026eef.chunk.js.map": "/TakiNews/static/js/787.4c026eef.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d215d850.css",
+    "static/js/main.f356fb6e.js"
+  ]
+}
