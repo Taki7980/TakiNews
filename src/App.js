@@ -23,7 +23,7 @@ const App = () => {
   const [Progress, setProgress] = useState(0)
 
   
-  const apikey = "3474df98f54e4eec87d5d472b8b4d3a0"
+  const apikey = '3474df98f54e4eec87d5d472b8b4d3a0'
   const country = "in";
   return (
     <div>
