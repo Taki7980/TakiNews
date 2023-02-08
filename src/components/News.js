@@ -50,9 +50,10 @@ const News = (props) => {
                     <h1 className="text-center text-3xl text-black mb-5 font-bold">TakiNews Top headlines on - {props.category}</h1>
                     {loading && <Spinner />}
                     <InfiniteScroll
-                        dataLength={!articles.length===0}
+                        dataLength={articles?.length === 0}
+                        // dataLength={articles && articles.length===0}
                         next={fetchMoreData}
-                        hasMore={articles.length !== totalResults}
+                        hasMore={articles?.length !== totalResults}
                         loader={<Spinner />}
                     >
                         <div className="container">
