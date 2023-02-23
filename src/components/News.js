@@ -25,9 +25,7 @@ const News = (props) => {
         settotalResults(data.totalResults)
         setLoading(false)
         props.setProgress(100);
-        return data.map((x)=>({
-            articles: toString(x.articles)
-        }))
+         
     }
     useEffect(() => {
         document.title = `TakiNews - ${props.category}`;
@@ -44,9 +42,7 @@ const News = (props) => {
         setArticles(data.articles.concat(data.articles))
         settotalResults(data.totalResults)
         setLoading(false)
-        return data.map((x)=>({
-            articles: toString(x.articles)
-        }))
+         
     };
 
     return (
