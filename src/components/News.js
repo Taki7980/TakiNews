@@ -25,6 +25,9 @@ const News = (props) => {
         settotalResults(data.totalResults)
         setLoading(false)
         props.setProgress(100);
+        return data.map((x)=>({
+            articles: toString(x.articles)
+        }))
     }
     useEffect(() => {
         document.title = `TakiNews - ${props.category}`;
@@ -41,6 +44,9 @@ const News = (props) => {
         setArticles(data.articles.concat(data.articles))
         settotalResults(data.totalResults)
         setLoading(false)
+        return data.map((x)=>({
+            articles: toString(x.articles)
+        }))
     };
 
     return (
@@ -59,7 +65,7 @@ const News = (props) => {
                         <div className="container">
                             <div className="grid lg:grid-cols-2 lg:gap-7 items-center sm:grid sm:grid-cols-1 sm:gap-1">
                                 {articles && articles.map((element) => {
-                                    return <div className="row" key={element.url}>
+                                    return <div className="row" key={element.title}>
                                         <NewsItem title={element.title ? element.title.slice(0, 60) : ""} imgUrl={element.urlToImage} author={element.author} description={element.description ? element.description.slice(0, 60) : ""} newsUrl={element.url} date={element.publishedAt} />
                                     </div>
                                 })}
