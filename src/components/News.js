@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 
@@ -5,6 +6,7 @@ import NewsItem from './NewsItem'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
 import InfiniteScroll from "react-infinite-scroll-component";
+import axios from 'axios';
 
 const News = (props) => {
     const [articles, setArticles] = useState([])
@@ -14,18 +16,17 @@ const News = (props) => {
 
 
 
-
     const updateNews = async () => {
         props.setProgress(10);
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.API_KEY}&page=${page}&pageSize=${props.pageSize}}`
+        const dataG = await axios.get(url);
+        const data = (dataG.data)
         setLoading(true)
-        const response = await fetch(url);
-        const data = await response.json()
         setArticles(data.articles)
         settotalResults(data.totalResults)
         setLoading(false)
         props.setProgress(100);
-         
+
     }
     useEffect(() => {
         document.title = `TakiNews - ${props.category}`;
@@ -35,14 +36,14 @@ const News = (props) => {
 
 
     const fetchMoreData = async () => {
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.API_KEY}&page=${page + 1}&pageSize=${props.pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.API_KEY}&page=${page+1}&pageSize=${props.pageSize}}`
+        const dataG = await axios.get(url);
         setPage(page + 1)
-        const response = await fetch(url);
-        const data = await response.json()
+        const data = (dataG.data)
         setArticles(data.articles.concat(data.articles))
         settotalResults(data.totalResults)
         setLoading(false)
-         
+
     };
 
     return (
@@ -52,7 +53,6 @@ const News = (props) => {
                     <h1 className="text-center text-3xl text-black mb-5 font-bold">TakiNews Top headlines on - {props.category}</h1>
                     {loading && <Spinner />}
                     <InfiniteScroll
-                        // dataLength={articles.length}
                         dataLength={articles && articles.length}
                         next={fetchMoreData}
                         hasMore={articles && articles.length !== totalResults}

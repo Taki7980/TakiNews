@@ -11,7 +11,6 @@ import {
   BrowserRouter as Router
 
 } from "react-router-dom";
-
 import React, { useState } from 'react'
 import Navbar from './components/Navbar';
 import News from './components/News';
@@ -21,7 +20,7 @@ import LoadingBar from 'react-top-loading-bar'
 const App = () => {
 
   const [Progress, setProgress] = useState(0)
-
+  
   
   const apikey = '3474df98f54e4eec87d5d472b8b4d3a0'
   const country = "in";
